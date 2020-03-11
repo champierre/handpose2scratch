@@ -15,6 +15,8 @@ It uses handpose package provided by MediaPipe and TensorFlow.js. If you want to
 
 ## Sample project
 
+https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpose.sb3
+
 ### Japanese
 
 <img src="images/ja/sample_project.png" />
