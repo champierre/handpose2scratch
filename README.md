@@ -6,7 +6,7 @@ It uses handpose package provided by MediaPipe and TensorFlow.js. If you want to
 
 ## Demo Movie
 
-  <img src="images/handpose.gif" width="900" />
+  <img src="images/handpose.gif" width="600" />
 
 ## How to use
 
