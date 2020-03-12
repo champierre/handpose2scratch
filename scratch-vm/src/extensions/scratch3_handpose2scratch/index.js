@@ -18,9 +18,19 @@ const Message = {
     'en': 'y of landmark: [LANDMARK]'
   },
   videoToggle: {
-    'ja': 'ビデオを[VIDEO_STATE]にする',
-    'ja-Hira': 'ビデオを[VIDEO_STATE]にする',
+    'ja': 'ビデオを [VIDEO_STATE] にする',
+    'ja-Hira': 'ビデオを [VIDEO_STATE] にする',
     'en': 'turn video [VIDEO_STATE]'
+  },
+  setRatio: {
+    'ja': '倍率を [RATIO] にする',
+    'ja-Hira': 'ばいりつを [RATIO] にする',
+    'en': 'set ratio to [RATIO]'
+  },
+  setInterval: {
+    'ja': '認識を [INTERVAL] 秒ごとに行う',
+    'ja-Hira': 'にんしきを [INTERVAL] びょうごとにおこなう',
+    'en': 'Label once every [INTERVAL] seconds'
   },
   on: {
     'ja': '入',
@@ -66,6 +76,52 @@ class Scratch3Handpose2ScratchBlocks {
       ]
     }
 
+    get INTERVAL_MENU () {
+      return [
+          {
+            text: '0.1',
+            value: '0.1'
+          },
+          {
+            text: '0.2',
+            value: '0.2'
+          },
+          {
+            text: '0.5',
+            value: '0.5'
+          },
+          {
+            text: '1.0',
+            value: '1.0'
+          }
+      ]
+    }
+
+    get RATIO_MENU () {
+      return [
+          {
+            text: '0.5',
+            value: '0.5'
+          },
+          {
+            text: '0.75',
+            value: '0.75'
+          },
+          {
+            text: '1',
+            value: '1'
+          },
+          {
+            text: '1.5',
+            value: '1.5'
+          },
+          {
+            text: '2.0',
+            value: '2.0'
+          }
+      ]
+    }
+
     constructor (runtime) {
         this.runtime = runtime;
 
@@ -76,17 +132,21 @@ class Scratch3Handpose2ScratchBlocks {
         video.height = 360;
         video.autoplay = true;
         video.style.display = "none";
+        this.video = video;
+        this.ratio = 0.75;
+        this.interval = 200;
 
-        video.addEventListener('loadeddata', (event) => {
+        this.video.addEventListener('loadeddata', (event) => {
           alert('During loading Handpose model the browser gets stuck, but please wait for a while.')
           handpose.load().then(model => {
-            setInterval(() => {
-              model.estimateHands(video).then(hands => {
+            this.model = model;
+            this.timer = setInterval(() => {
+              this.model.estimateHands(this.video).then(hands => {
                 hands.forEach(hand => {
                   this.landmarks = hand.landmarks;
                 });
               });
-            }, 200);
+            }, this.interval);
           });
         });
 
@@ -96,7 +156,7 @@ class Scratch3Handpose2ScratchBlocks {
         });
 
         media.then((stream) => {
-            video.srcObject = stream;
+            this.video.srcObject = stream;
         });
 
         this.runtime.ioDevices.video.enableVideo();
@@ -144,6 +204,30 @@ class Scratch3Handpose2ScratchBlocks {
                             defaultValue: 'off'
                         }
                     }
+                },
+                {
+                    opcode: 'setRatio',
+                    blockType: BlockType.COMMAND,
+                    text: Message.setRatio[this._locale],
+                    arguments: {
+                        RATIO: {
+                            type: ArgumentType.STRING,
+                            menu: 'ratioMenu',
+                            defaultValue: '0.75'
+                        }
+                    }
+                },
+                {
+                    opcode: 'setInterval',
+                    blockType: BlockType.COMMAND,
+                    text: Message.setInterval[this._locale],
+                    arguments: {
+                        INTERVAL: {
+                            type: ArgumentType.STRING,
+                            menu: 'intervalMenu',
+                            defaultValue: '0.2'
+                        }
+                    }
                 }
             ],
             menus: {
@@ -154,6 +238,14 @@ class Scratch3Handpose2ScratchBlocks {
               videoMenu: {
                 acceptReporters: true,
                 items: this.VIDEO_MENU
+              },
+              ratioMenu: {
+                acceptReporters: true,
+                items: this.RATIO_MENU
+              },
+              intervalMenu: {
+                acceptReporters: true,
+                items: this.INTERVAL_MENU
               }
             }
         };
@@ -162,9 +254,9 @@ class Scratch3Handpose2ScratchBlocks {
     getX (args) {
       if (this.landmarks[parseInt(args.LANDMARK, 10)]) {
         if (this.runtime.ioDevices.video.mirror === false) {
-          return -1 * (240 - this.landmarks[parseInt(args.LANDMARK, 10)][0] * 0.75);
+          return -1 * (240 - this.landmarks[parseInt(args.LANDMARK, 10)][0] * this.ratio);
         } else {
-          return 240 - this.landmarks[parseInt(args.LANDMARK, 10)][0] * 0.75;
+          return 240 - this.landmarks[parseInt(args.LANDMARK, 10)][0] * this.ratio;
         }
       } else {
         return "";
@@ -173,7 +265,7 @@ class Scratch3Handpose2ScratchBlocks {
 
     getY (args) {
       if (this.landmarks[parseInt(args.LANDMARK, 10)]) {
-        return 180 - this.landmarks[parseInt(args.LANDMARK, 10)][1] * 0.75;
+        return 180 - this.landmarks[parseInt(args.LANDMARK, 10)][1] * this.ratio;
       } else {
         return "";
       }
@@ -187,6 +279,25 @@ class Scratch3Handpose2ScratchBlocks {
         this.runtime.ioDevices.video.enableVideo();
         this.runtime.ioDevices.video.mirror = state === "on";
       }
+    }
+
+    setRatio (args) {
+      this.ratio = parseFloat(args.RATIO);
+    }
+
+    setInterval (args) {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+
+      this.interval = args.INTERVAL * 1000;
+      this.timer = setInterval(() => {
+        this.model.estimateHands(this.video).then(hands => {
+          hands.forEach(hand => {
+            this.landmarks = hand.landmarks;
+          });
+        });
+      }, this.interval);
     }
 
     setLocale() {
