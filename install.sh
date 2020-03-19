@@ -4,9 +4,6 @@ LF=$(printf '\\\012_')
 LF=${LF%_}
 EXTENSION_NAME=Handpose2Scratch
 EXTENSION_ID=handpose2scratch
-COLLABORATOR=champierre
-HELP_LINK=https://champierre.github.io/handpose2scratch/
-EXTENSION_DESCRIPTION="PoseNet2Scratch Blocks."
 
 mkdir -p node_modules/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}
 cp ${EXTENSION_ID}/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}/index.js node_modules/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}/
@@ -21,13 +18,13 @@ DESCRIPTION="\
     {${LF}\
         name: '${EXTENSION_NAME}',${LF}\
         extensionId: '${EXTENSION_ID}',${LF}\
-        collaborator: '${COLLABORATOR}',${LF}\
+        collaborator: 'champierre',${LF}\
         iconURL: ${EXTENSION_ID}IconURL,${LF}\
         insetIconURL: ${EXTENSION_ID}InsetIconURL,${LF}\
         description: (${LF}\
             <FormattedMessage${LF}\
-                defaultMessage='${EXTENSION_DESCRIPTION}'${LF}\
-                description='${EXTENSION_DESCRIPTION}'${LF}\
+                defaultMessage='PoseNet2Scratch Blocks.'${LF}\
+                description='PoseNet2Scratch Blocks.'${LF}\
                 id='gui.extension.${EXTENSION_ID}blocks.description'${LF}\
             />${LF}\
         ),${LF}\
@@ -35,6 +32,6 @@ DESCRIPTION="\
         disabled: false,${LF}\
         internetConnectionRequired: true,${LF}\
         bluetoothRequired: false,${LF}\
-        helpLink: '${HELP_LINK}'${LF}\
+        helpLink: 'https://champierre.github.io/handpose2scratch/'${LF}\
     },"
 sed -e "s|^export default \[$|import ${EXTENSION_ID}IconURL from './${EXTENSION_ID}/${EXTENSION_ID}.png';${LF}import ${EXTENSION_ID}InsetIconURL from './${EXTENSION_ID}/${EXTENSION_ID}-small.png';${LF}${LF}export default [${LF}${DESCRIPTION}|g" src/lib/libraries/extensions/index.jsx_orig > src/lib/libraries/extensions/index.jsx
