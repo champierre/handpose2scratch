@@ -31,7 +31,7 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
 
 ## Examples of use
 
-- Coming..
+- Coming soon...
 
 ## Requirements
 
@@ -43,3 +43,31 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
   - Chrome
 
 Handpose2Scratch sometimes does not work because of some Chrome extensions. Please switch to [Guest Mode](https://support.google.com/chrome/answer/6130773) in such cases.
+
+## For Developers - How to run Handpose2Scratch extension on your computer
+
+1. Setup LLK/scratch-gui on your computer.
+
+  ```
+  % git clone git@github.com:LLK/scratch-gui.git
+  % cd scratch-gui
+  % npm install
+  ```
+
+2. In scratch-gui folder, clone Handose2Scratch. You will have handpose2scratch folder under scratch-gui.
+
+  ```
+  % git clone git@github.com:champierre/handpose2scratch.git
+  ```
+
+3. Run the install script.
+
+  ```
+  % sh handpose2scratch/install.sh
+  ```
+
+4. Run Scratch, then go to http://localhost:8601/.
+
+  ```
+  % npm start
+  ```
