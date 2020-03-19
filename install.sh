@@ -23,8 +23,8 @@ DESCRIPTION="\
         insetIconURL: ${EXTENSION_ID}InsetIconURL,${LF}\
         description: (${LF}\
             <FormattedMessage${LF}\
-                defaultMessage='PoseNet2Scratch Blocks.'${LF}\
-                description='PoseNet2Scratch Blocks.'${LF}\
+                defaultMessage='HandPose2Scratch Blocks.'${LF}\
+                description='HandPose2Scratch Blocks.'${LF}\
                 id='gui.extension.${EXTENSION_ID}blocks.description'${LF}\
             />${LF}\
         ),${LF}\
