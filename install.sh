@@ -5,6 +5,12 @@ LF=${LF%_}
 EXTENSION_NAME=Handpose2Scratch
 EXTENSION_ID=handpose2scratch
 
+cd node_modules/scratch-vm
+npm install @tensorflow/tfjs-core
+npm install @tensorflow/tfjs-converter
+npm install @tensorflow-models/handpose
+cd ../../
+
 mkdir -p node_modules/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}
 cp ${EXTENSION_ID}/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}/index.js node_modules/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}/
 mv node_modules/scratch-vm/src/extension-support/extension-manager.js node_modules/scratch-vm/src/extension-support/extension-manager.js_orig
