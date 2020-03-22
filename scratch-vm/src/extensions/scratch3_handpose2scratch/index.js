@@ -45,15 +45,20 @@ const Message = {
   video_on_flipped: {
     'ja': '左右反転',
     'ja-Hira': 'さゆうはんてん',
-    'en': 'on flipped',
+    'en': 'on flipped'
   },
+  please_wait: {
+    'ja': '準備に時間がかかります。少しの間、操作ができなくなりますがお待ち下さい。',
+    'ja-Hira': 'じゅんびにじかんがかかります。すこしのあいだ、そうさができなくなりますがおまちください。',
+    'en': 'Setup takes a while. The browser will get stuck, but please wait.'
+  }
 }
 const AvailableLocales = ['en', 'ja', 'ja-Hira'];
 
 class Scratch3Handpose2ScratchBlocks {
     get LANDMARK_MENU () {
       landmark_menu = [];
-      for (let i = 0; i <= 20; i++) {
+      for (let i = 1; i <= 21; i++) {
         landmark_menu.push({text: String(i), value: String(i)})
       }
       return landmark_menu;
@@ -137,7 +142,7 @@ class Scratch3Handpose2ScratchBlocks {
         this.interval = 200;
 
         this.video.addEventListener('loadeddata', (event) => {
-          alert('During loading Handpose model the browser gets stuck, but please wait for a while.')
+          alert(Message.please_wait[this._locale]);
           handpose.load().then(model => {
             this.model = model;
             this.timer = setInterval(() => {
@@ -177,7 +182,7 @@ class Scratch3Handpose2ScratchBlocks {
                         LANDMARK: {
                             type: ArgumentType.STRING,
                             menu: 'landmark',
-                            defaultValue: '0'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -189,7 +194,7 @@ class Scratch3Handpose2ScratchBlocks {
                         LANDMARK: {
                             type: ArgumentType.STRING,
                             menu: 'landmark',
-                            defaultValue: '0'
+                            defaultValue: '1'
                         }
                     }
                 },
@@ -252,11 +257,12 @@ class Scratch3Handpose2ScratchBlocks {
     }
 
     getX (args) {
-      if (this.landmarks[parseInt(args.LANDMARK, 10)]) {
+      let landmark = parseInt(args.LANDMARK, 10) - 1;
+      if (this.landmarks[landmark]) {
         if (this.runtime.ioDevices.video.mirror === false) {
-          return -1 * (240 - this.landmarks[parseInt(args.LANDMARK, 10)][0] * this.ratio);
+          return -1 * (240 - this.landmarks[landmark][0] * this.ratio);
         } else {
-          return 240 - this.landmarks[parseInt(args.LANDMARK, 10)][0] * this.ratio;
+          return 240 - this.landmarks[landmark][0] * this.ratio;
         }
       } else {
         return "";
@@ -264,8 +270,9 @@ class Scratch3Handpose2ScratchBlocks {
     }
 
     getY (args) {
-      if (this.landmarks[parseInt(args.LANDMARK, 10)]) {
-        return 180 - this.landmarks[parseInt(args.LANDMARK, 10)][1] * this.ratio;
+      let landmark = parseInt(args.LANDMARK, 10) - 1;
+      if (this.landmarks[landmark]) {
+        return 180 - this.landmarks[landmark][1] * this.ratio;
       } else {
         return "";
       }
