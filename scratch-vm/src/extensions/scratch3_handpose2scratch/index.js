@@ -167,7 +167,7 @@ class Scratch3Handpose2ScratchBlocks {
     get LANDMARK_MENU () {
       landmark_menu = [];
       for (let i = 1; i <= 21; i++) {
-        landmark_menu.push({text: Message.landmarks[i - 1][this._locale], value: String(i)})
+        landmark_menu.push({text: `${Message.landmarks[i - 1][this._locale]} (${i})`, value: String(i)})
       }
       return landmark_menu;
     }
