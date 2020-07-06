@@ -10,7 +10,7 @@ It uses handpose package provided by MediaPipe and TensorFlow.js. If you want to
 
 ## How to use
 
-- Open https://champierre.github.io/scratch3/ on Chrome.
+- Open https://stretch3.github.io/ Chrome.
 - Open Handpose2Scratch extension.
 
 ## Sample project
