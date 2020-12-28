@@ -31,7 +31,7 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
 
 ## Examples of use
 
-- Coming soon...
+- https://www.youtube.com/watch?v=jxgwA770qOQ
 
 ## Requirements
 
