@@ -2,10 +2,7 @@ const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
 const Cast = require('../../util/cast');
 const formatMessage = require('format-message');
-require('@tensorflow/tfjs-core');
-require('@tensorflow/tfjs-converter');
-require('@tensorflow/tfjs-backend-webgl');
-const handpose = require('@tensorflow-models/handpose');
+const ml5 = require('ml5');
 
 const Message = {
   getX: {
@@ -247,19 +244,18 @@ class Scratch3Handpose2ScratchBlocks {
         video.style.display = "none";
         this.video = video;
         this.ratio = 0.75;
-        this.interval = 200;
 
         this.video.addEventListener('loadeddata', (event) => {
           alert(Message.please_wait[this._locale]);
-          handpose.load().then(model => {
-            this.model = model;
-            this.timer = setInterval(() => {
-              this.model.estimateHands(this.video).then(hands => {
-                hands.forEach(hand => {
-                  this.landmarks = hand.landmarks;
-                });
-              });
-            }, this.interval);
+
+          const handpose = ml5.handpose(this.video, function() {
+            console.log("Model loaded!")
+          });
+
+          handpose.on('predict', hands => {
+            hands.forEach(hand => {
+              this.landmarks = hand.landmarks;
+            });
           });
         });
 
@@ -329,18 +325,6 @@ class Scratch3Handpose2ScratchBlocks {
                             defaultValue: '0.75'
                         }
                     }
-                },
-                {
-                    opcode: 'setInterval',
-                    blockType: BlockType.COMMAND,
-                    text: Message.setInterval[this._locale],
-                    arguments: {
-                        INTERVAL: {
-                            type: ArgumentType.STRING,
-                            menu: 'intervalMenu',
-                            defaultValue: '0.2'
-                        }
-                    }
                 }
             ],
             menus: {
@@ -398,21 +382,6 @@ class Scratch3Handpose2ScratchBlocks {
 
     setRatio (args) {
       this.ratio = parseFloat(args.RATIO);
-    }
-
-    setInterval (args) {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-
-      this.interval = args.INTERVAL * 1000;
-      this.timer = setInterval(() => {
-        this.model.estimateHands(this.video).then(hands => {
-          hands.forEach(hand => {
-            this.landmarks = hand.landmarks;
-          });
-        });
-      }, this.interval);
     }
 
     setLocale() {
