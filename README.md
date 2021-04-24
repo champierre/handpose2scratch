@@ -39,8 +39,10 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
   - Windows 8 (TBD)
   - Windows 10 (TBD)
   - MacOS
+  - iOS
 - Browser
   - Chrome
+  - Safari(iOS)
 
 Handpose2Scratch sometimes does not work because of some Chrome extensions. Please switch to [Guest Mode](https://support.google.com/chrome/answer/6130773) in such cases.
 
