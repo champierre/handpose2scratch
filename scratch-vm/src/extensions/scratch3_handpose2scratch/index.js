@@ -239,16 +239,11 @@ class Scratch3Handpose2ScratchBlocks {
         this.runtime = runtime;
 
         this.landmarks = [];
-
-        let video = document.createElement("video");
-        video.width = 480;
-        video.height = 360;
-        video.autoplay = true;
-        video.style.display = "none";
-        this.video = video;
         this.ratio = 0.75;
 
-        this.video.addEventListener('loadeddata', (event) => {
+        this.detectHand = () => {
+          this.video = this.runtime.ioDevices.video.provider.video;
+
           alert(Message.please_wait[this._locale]);
 
           const handpose = ml5.handpose(this.video, function() {
@@ -260,18 +255,8 @@ class Scratch3Handpose2ScratchBlocks {
               this.landmarks = hand.landmarks;
             });
           });
-        });
-
-        let media = navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false
-        });
-
-        media.then((stream) => {
-            this.video.srcObject = stream;
-        });
-
-        this.runtime.ioDevices.video.enableVideo();
+        }
+        this.runtime.ioDevices.video.enableVideo().then(this.detectHand)
     }
 
     getInfo () {
@@ -379,7 +364,7 @@ class Scratch3Handpose2ScratchBlocks {
       if (state === 'off') {
         this.runtime.ioDevices.video.disableVideo();
       } else {
-        this.runtime.ioDevices.video.enableVideo();
+        this.runtime.ioDevices.video.enableVideo().then(this.detectHand);
         this.runtime.ioDevices.video.mirror = state === "on";
       }
     }
