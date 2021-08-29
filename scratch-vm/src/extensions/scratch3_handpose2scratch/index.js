@@ -18,6 +18,11 @@ const Message = {
     'ja-Hira': '[LANDMARK] のyざひょう',
     'en': 'y of [LANDMARK]'
   },
+  getZ: {
+    'ja': '[LANDMARK] のz座標',
+    'ja-Hira': '[LANDMARK] のzざひょう',
+    'en': 'z of [LANDMARK]'
+  },
   videoToggle: {
     'ja': 'ビデオを [VIDEO_STATE] にする',
     'ja-Hira': 'ビデオを [VIDEO_STATE] にする',
@@ -292,6 +297,18 @@ class Scratch3Handpose2ScratchBlocks {
                     }
                 },
                 {
+                  opcode: 'getZ',
+                  blockType: BlockType.REPORTER,
+                  text: Message.getZ[this._locale],
+                  arguments: {
+                      LANDMARK: {
+                          type: ArgumentType.STRING,
+                          menu: 'landmark',
+                          defaultValue: '1'
+                      }
+                  }
+                },
+                {
                     opcode: 'videoToggle',
                     blockType: BlockType.COMMAND,
                     text: Message.videoToggle[this._locale],
@@ -368,6 +385,15 @@ class Scratch3Handpose2ScratchBlocks {
       let landmark = parseInt(args.LANDMARK, 10) - 1;
       if (this.landmarks[landmark]) {
         return 180 - this.landmarks[landmark][1] * this.ratio;
+      } else {
+        return "";
+      }
+    }
+
+    getZ (args) {
+      let landmark = parseInt(args.LANDMARK, 10) - 1;
+      if (this.landmarks[landmark]) {
+        return this.landmarks[landmark][2];
       } else {
         return "";
       }
