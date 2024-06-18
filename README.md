@@ -5,43 +5,38 @@ Handpose2Scratchは2020年よりオープンソースかつ無料で提供して
 
 <a href="https://www.buymeacoffee.com/champierre"><img src="https://user-images.githubusercontent.com/10215/215533679-bb41b1a2-ba42-4eb6-9f9a-6d0bd67f3aaa.png"></a>
 
-
 # Handpose2Scratch
 
-Hand tracking on Scratch 3 with Webcam only.
+Handpose2Scratchは、Webカメラのみで手や指のトラッキングができるScratch3向け拡張機能です。
 
-It uses handpose package provided by MediaPipe and TensorFlow.js. If you want to know about the technology behind, please refer to "[Face and hand tracking in the browser with MediaPipe and TensorFlow.js](https://blog.tensorflow.org/2020/03/face-and-hand-tracking-in-browser-with-mediapipe-and-tensorflowjs.html)"
+MediaPipeとTensorFlow.jsが提供するhandposeパッケージを利用しています。背景にある技術を知りたい方は、"[Face and hand tracking in the browser with MediaPipe and TensorFlow.js](https://blog.tensorflow.org/2020/03/face-and-hand-tracking-in-browser-with-mediapipe-and-tensorflowjs.html)"を参照ください。
 
-## Demo Movie
+*他の言語で読む: [English](README.en.md), [日本語](README.md).*
+
+## デモ動画
 
   <img src="images/handpose.gif" width="600" />
 
-## How to use
+## 使用方法
 
-- Open https://champierre.github.io/handpose2scratch on Chrome browser.
-- Open Handpose2Scratch extension.
+- Chromeで https://stretch3.github.io/ (ほかのオリジナル拡張機能が使用できます)または https://champierre.github.io/handpose2scratch/ を開きます。
+- 拡張機能一覧よりHandpose2Scratchを選びます。
 
-## Sample project
+## サンプルプロジェクト
 
 https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpose.sb3
 
-### Japanese
-
 <img src="images/ja/sample_project.png" />
 
-### English
+## ライセンス
 
-<img src="images/en/sample_project.png" />
+- Handpose2Scratchには [BSD 3-Clause License](./LICENSE.md) が適用されます。オープンソースで、誰でも自由に利用できます。授業やワークショップで使用でき、商用利用も認められています。あなたやあなたの生徒さんがHandpose2Scratchを使用して何か面白いプロジェクトを作成したときは、ぜひハッシュタグ #handpose2scratch を使用してSNSで共有するか、連絡先までお知らせください。以下の「活用例」に追加させていただきます。
 
-## Licence
+## 活用例
 
-- Handpose2Scratch is under [BSD 3-Clause License](./LICENSE.md), open source and freely available to anyone. You can use it at your classes, workshops. Commercial usage is also accepted. If you or your students created something cool using Handpose2Scratch, please share it on SNS using hashtag #handpose2scratch or let me know to any of these contacts. Interesting projects will be added to the "Examples of use".
+- [Handpose2Scratch で手を握る/開く動作や指を立てた本数を検出・判別する](https://www.youtube.com/watch?v=jxgwA770qOQ)
 
-## Examples of use
-
-- https://www.youtube.com/watch?v=jxgwA770qOQ
-
-## Requirements
+## 推奨環境
 
 - OS
   - Windows 8 (TBD)
@@ -52,9 +47,9 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
   - Chrome
   - Safari(iOS)
 
-Handpose2Scratch sometimes does not work because of some Chrome extensions. Please switch to [Guest Mode](https://support.google.com/chrome/answer/6130773) in such cases.
+Chrome の拡張機能を使用している場合に、正常に動作しないことがあるので、もしうまく動かないという場合には、[ゲストモード](https://support.google.com/chrome/answer/6130773?hl=ja)に切り替えてお試しください。
 
-## For Developers - How to run Handpose2Scratch extension on your computer
+## 開発社向け
 
 1. Setup LLK/scratch-gui on your computer.
 
