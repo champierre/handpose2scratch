@@ -6,7 +6,7 @@ EXTENSION_NAME=Handpose2Scratch
 EXTENSION_ID=handpose2scratch
 
 cd node_modules/scratch-vm
-npm install ml5
+npm install ml5@0.12.2
 cd ../../
 
 mkdir -p node_modules/scratch-vm/src/extensions/scratch3_${EXTENSION_ID}
