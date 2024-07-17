@@ -49,7 +49,7 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
 
 Chrome の拡張機能を使用している場合に、正常に動作しないことがあるので、もしうまく動かないという場合には、[ゲストモード](https://support.google.com/chrome/answer/6130773?hl=ja)に切り替えてお試しください。
 
-## 開発社向け
+## 開発者向け
 
 1. Setup LLK/scratch-gui on your computer.
 
