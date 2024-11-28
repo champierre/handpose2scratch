@@ -21,7 +21,7 @@ https://github.com/champierre/handpose2scratch/raw/master/sample_projects/handpo
 
 ## Licence
 
-- Handpose2Scratch is under [AGPL-3.0 license](./LICENSE), open source and freely available to anyone. You can use it at your classes, workshops. Commercial usage is also accepted. If you or your students created something cool using Handpose2Scratch, please share it on SNS using hashtag #handpose2scratch or let me know to any of these contacts. Interesting projects will be added to the "Examples of use".
+Handpose2Scratch is under [AGPL-3.0 license](./LICENSE), open source and freely available to anyone. You can use it at your classes, workshops. Commercial usage is also accepted. If you or your students created something cool using Handpose2Scratch, please share it on SNS using hashtag #handpose2scratch or let me know to any of these contacts. Interesting projects will be added to the "Examples of use".
 
 ## Examples of use
 
