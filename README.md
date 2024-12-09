@@ -54,7 +54,7 @@ Chrome の拡張機能を使用している場合に、正常に動作しない�
 1. Setup LLK/scratch-gui on your computer.
 
   ```
-  % git clone git@github.com:LLK/scratch-gui.git
+  % git clone --depth 1 git@github.com:LLK/scratch-gui.git
   % cd scratch-gui
   % npm install
   ```
