@@ -11,162 +11,194 @@ const Message = {
   getX: {
     'ja': '[LANDMARK] のx座標',
     'ja-Hira': '[LANDMARK] のxざひょう',
-    'en': 'x of [LANDMARK]'
+    'en': 'x of [LANDMARK]',
+    'fr': 'x de [LANDMARK]'
   },
   getY: {
     'ja': '[LANDMARK] のy座標',
     'ja-Hira': '[LANDMARK] のyざひょう',
-    'en': 'y of [LANDMARK]'
+    'en': 'y of [LANDMARK]',
+    'fr': 'y de [LANDMARK]'
   },
   getZ: {
     'ja': '[LANDMARK] のz座標',
     'ja-Hira': '[LANDMARK] のzざひょう',
-    'en': 'z of [LANDMARK]'
+    'en': 'z of [LANDMARK]',
+    'fr': 'z de [LANDMARK]'
   },
   videoToggle: {
     'ja': 'ビデオを [VIDEO_STATE] にする',
     'ja-Hira': 'ビデオを [VIDEO_STATE] にする',
-    'en': 'turn video [VIDEO_STATE]'
+    'en': 'turn video [VIDEO_STATE]',
+    'fr': 'mettre la vidéo [VIDEO_STATE]'
   },
   setRatio: {
     'ja': '倍率を [RATIO] にする',
     'ja-Hira': 'ばいりつを [RATIO] にする',
-    'en': 'set ratio to [RATIO]'
+    'en': 'set ratio to [RATIO]',
+    'fr': 'définir le ratio à [RATIO]'
   },
   setInterval: {
     'ja': '認識を [INTERVAL] 秒ごとに行う',
     'ja-Hira': 'にんしきを [INTERVAL] びょうごとにおこなう',
-    'en': 'Label once every [INTERVAL] seconds'
+    'en': 'Label once every [INTERVAL] seconds',
+    'fr': 'étiqueter toutes les [INTERVAL] secondes'
   },
   on: {
     'ja': '入',
     'ja-Hira': 'いり',
-    'en': 'on'
+    'en': 'on',
+    'fr': 'activé'
   },
   off: {
     'ja': '切',
     'ja-Hira': 'きり',
-    'en': 'off'
+    'en': 'off',
+    'fr': 'désactivé'
   },
   video_on_flipped: {
     'ja': '左右反転',
     'ja-Hira': 'さゆうはんてん',
-    'en': 'on flipped'
+    'en': 'on flipped',
+    'fr': 'vidéo inversée'
+    
   },
   please_wait: {
     'ja': '準備に時間がかかります。少しの間、操作ができなくなりますがお待ち下さい。',
     'ja-Hira': 'じゅんびにじかんがかかります。すこしのあいだ、そうさができなくなりますがおまちください。',
-    'en': 'Setup takes a while. The browser will get stuck, but please wait.'
+    'en': 'Setup takes a while. The browser will get stuck, but please wait.',
+    'fr': 'La configuration prend un certain temps. Le navigateur peut sembler figé, veuillez patienter.'
   },
   landmarks: [
     {
       'ja': '手首',
       'ja-Hira': 'てくび',
-      'en': 'wrist'
+      'en': 'wrist',
+      'fr': 'poignet'
     },
     {
       'ja': '親指の根元',
       'ja-Hira': 'おやゆびのねもと',
-      'en': 'the base of thumb'
+      'en': 'the base of thumb',
+      'fr': 'base du pouce'
     },
     {
       'ja': '親指の第2関節',
       'ja-Hira': 'おやゆびのだい2かんせつ',
-      'en': 'the 2nd joint of thumb'
+      'en': 'the 2nd joint of thumb',
+      'fr': '2ᵉ articulation du pouce'
     },
     {
       'ja': '親指の第1関節',
       'ja-Hira': 'おやゆびのだい1かんせつ',
-      'en': 'the 1st joint of thumb'
+      'en': 'the 1st joint of thumb',
+      'fr': '1ʳᵉ articulation du pouce'
     },
     {
       'ja': '親指の先端',
       'ja-Hira': 'おやゆびのさき',
-      'en': 'thumb'
+      'en': 'thumb',
+      'fr': 'bout du pouce'
     },
     {
       'ja': '人差し指の第3関節',
       'ja-Hira': 'ひとさしゆびのだい3かんせつ',
-      'en': 'the 3rd joint of index finger'
+      'en': 'the 3rd joint of index finger',
+      'fr': '3ᵉ articulation de l’index'
     },
     {
       'ja': '人差し指の第2関節',
       'ja-Hira': 'ひとさしゆびのだい2かんせつ',
-      'en': 'the 2nd joint of index finger'
+      'en': 'the 2nd joint of index finger',
+      'fr': '2ᵉ articulation de l’index'
     },
     {
       'ja': '人差し指の第1関節',
       'ja-Hira': 'ひとさしゆびのだい1かんせつ',
-      'en': 'the 1st joint of index finger'
+      'en': 'the 1st joint of index finger',
+      'fr': '1ʳᵉ articulation de l’index'
     },
     {
       'ja': '人差し指の先端',
       'ja-Hira': 'ひとさしゆびのせんたん',
-      'en': 'index finger'
+      'en': 'index finger',
+      'fr': 'bout de l’index'
     },
     {
       'ja': '中指の第3関節',
       'ja-Hira': 'なかゆびのだい3かんせつ',
-      'en': 'the 3rd joint of middle finger'
+      'en': 'the 3rd joint of middle finger',
+      'fr': '3ᵉ articulation du majeur'
     },
     {
       'ja': '中指の第2関節',
       'ja-Hira': 'なかゆびのだい2かんせつ',
-      'en': 'the 2nd joint of middle finger'
+      'en': 'the 2nd joint of middle finger',
+      'fr': '2ᵉ articulation du majeur'
     },
     {
       'ja': '中指の第1関節',
       'ja-Hira': 'なかゆびのだい1かんせつ',
-      'en': 'the 1st joint of middle finger'
+      'en': 'the 1st joint of middle finger',
+      'fr': '1ʳᵉ articulation du majeur' 
     },
     {
       'ja': '中指の先端',
       'ja-Hira': 'なかゆびのせんたん',
-      'en': 'middle finger'
+      'en': 'middle finger',
+      'fr': 'bout du majeur'
     },
     {
       'ja': '薬指の第3関節',
       'ja-Hira': 'くすりゆびのだい3かんせつ',
-      'en': 'the 3rd joint of ring finger'
+      'en': 'the 3rd joint of ring finger',
+      'fr': '3ᵉ articulation de l’annulaire'
     },
     {
       'ja': '薬指の第2関節',
       'ja-Hira': 'くすりゆびのだい2かんせつ',
-      'en': 'the 2nd joint of ring finger'
+      'en': 'the 2nd joint of ring finger',
+      'fr': '2ᵉ articulation de l’annulaire'
     },
     {
       'ja': '薬指の第1関節',
       'ja-Hira': 'くすりゆびのだい1かんせつ',
-      'en': 'the 1st joint of ring finger'
+      'en': 'the 1st joint of ring finger',
+      'fr': '1ʳᵉ articulation de l’annulaire'
     },
     {
       'ja': '薬指の先端',
       'ja-Hira': 'くすりゆびのせんたん',
-      'en': 'ring finger'
+      'en': 'ring finger',
+      'fr': 'bout de l’annulaire'
     },
     {
       'ja': '小指の第3関節',
       'ja-Hira': 'こゆびのだい3かんせつ',
-      'en': 'the 3rd joint of little finger'
+      'en': 'the 3rd joint of little finger',
+      'fr': '3ᵉ articulation de l’auriculaire' 
     },
     {
       'ja': '小指の第2関節',
       'ja-Hira': 'こゆびのだい2かんせつ',
-      'en': 'the 2nd joint of little finger'
+      'en': 'the 2nd joint of little finger',
+      'fr': '2ᵉ articulation de l’auriculaire'
     },
     {
       'ja': '小指の第1関節',
       'ja-Hira': 'こゆびのだい1かんせつ',
-      'en': 'the 1st joint of little finger'
+      'en': 'the 1st joint of little finger',
+      'fr': '1ʳᵉ articulation de l’auriculaire'
     },
     {
       'ja': '小指の先端',
       'ja-Hira': 'こゆびのせんたん',
-      'en': 'little finger'
+      'en': 'little finger',
+      'fr': 'bout de l’auriculaire'
     }
   ]
 }
-const AvailableLocales = ['en', 'ja', 'ja-Hira'];
+const AvailableLocales = ['en', 'ja', 'ja-Hira', 'fr'];
 
 class Scratch3Handpose2ScratchBlocks {
     get LANDMARK_MENU () {
