@@ -27,6 +27,10 @@ Handpose2Scratch is under [AGPL-3.0 license](./LICENSE), open source and freely 
 
 - https://www.youtube.com/watch?v=jxgwA770qOQ
 
+## Acknowledgements
+
+French translation: [@slapash](https://github.com/slapash)
+
 ## Requirements
 
 - OS

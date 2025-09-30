@@ -36,6 +36,10 @@ Handpose2Scratchには [AGPL-3.0 license](./LICENSE) が適用されます。オ
 
 - [Handpose2Scratch で手を握る/開く動作や指を立てた本数を検出・判別する](https://www.youtube.com/watch?v=jxgwA770qOQ)
 
+## 謝辞
+
+フランス語翻訳: [@slapash](https://github.com/slapash)
+
 ## 推奨環境
 
 - OS
